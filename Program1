@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+// Tower of Hanoi function
+void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) {
+    if (n == 1) {
+        cout << "Move disk 1 from " << from_rod << " to " << to_rod << endl;
+        return;
+    }
+    towerOfHanoi(n - 1, from_rod, aux_rod, to_rod);
+    cout << "Move disk " << n << " from " << from_rod << " to " << to_rod << endl;
+    towerOfHanoi(n - 1, aux_rod, to_rod, from_rod);
+}
+
+// GCD function
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
+// Fibonacci function
+void generateFibonacci(int n) {
+    int a = 0, b = 1;
+    cout << "Fibonacci Series: ";
+    for (int i = 0; i < n; i++) {
+        cout << a << " ";
+        int temp = a;
+        a = b;
+        b = temp + b;
+    }
+    cout << endl;
+}
+
+// Factorial function
+int factorial(int n) {
+    if (n == 0 || n == 1)
+        return 1;
+    return n * factorial(n - 1);
+}
+
+int main() {
+    int n;
+
+    // Tower of Hanoi
+    int disks;
+    cout << "Enter the number of disks for Tower of Hanoi: ";
+    cin >> disks;
+    cout << "Tower of Hanoi steps:" << endl;
+    towerOfHanoi(disks, 'A', 'C', 'B');
+    cout << endl;
+
+    // GCD
+    int num1, num2;
+    cout << "Enter two numbers to find their GCD: ";
+    cin >> num1 >> num2;
+    cout << "GCD: " << gcd(num1, num2) << endl;
+
+    // Fibonacci
+    cout << "Enter the number of Fibonacci numbers to generate: ";
+    cin >> n;
+    generateFibonacci(n);
+
+    // Factorial
+    int num;
+    cout << "Enter a number to find its factorial: ";
+    cin >> num;
+    cout << "Factorial: " << factorial(num) << endl;
+
+    return 0;
+}
