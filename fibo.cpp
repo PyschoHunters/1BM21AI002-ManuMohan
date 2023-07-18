@@ -17,12 +17,13 @@ int fib(int n) {
 }t;
 
 int main(){
+    int n;
 
-   cout << "Enter the number of terms of series : ";
-   cin >> t.n;
-   cout << "\nFibonnaci Series : ";
-   for(int i=0;i<n;i++) {
-      cout << " " << t.fib(i);
+    cout << "Enter the number of terms of series : ";
+    cin >> n;
+    cout << "\nFibonnaci Series : ";
+    for(int i=0;i<n;i++) {
+        cout << " " << t.fib(i);
    }
    return 0;
 }
